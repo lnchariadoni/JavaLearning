@@ -135,10 +135,25 @@ class GatherersParallemStreamSequenceGathererTest {
             });
 
     /*
-        Input: Parallel Stream
-        Gatherer: Sequence
-        Processing: TODO
-     */
+    Test: parallelStreamWithSequenceGatherer1
+
+    This test verifies the behavior of a parallel stream using a sequence gatherer with only an integrator.
+
+    - Input: List of integers [1, 2, 3, 4, 5] processed as a parallel stream.
+    - Processing steps:
+        1. Filter elements greater than zero.
+        2. Map each element by multiplying by two.
+        3. Gather using `onlyIntegratorSequenceGatherer` (forces sequential processing up to this point).
+        4. Map each gathered element by multiplying by three.
+        5. Filter elements less than one hundred.
+        6. Limit to the first three elements.
+        7. Collect results to a list.
+
+    - Expected output: [6, 12, 18]
+      (corresponds to: ((1*2)*3), ((2*2)*3), ((3*2)*3))
+
+    The test asserts that the output list matches the expected values in both elements and order.
+ */
     @Test
     void parallelStreamWithSequenceGatherer1() {
         System.out.println("Processing test: parallelStreamWithSequenceGatherer()");
