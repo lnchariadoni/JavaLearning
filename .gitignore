@@ -37,3 +37,22 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Security - Never commit these ###
+*.env
+.env*
+config/secrets.yml
+secrets/
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+application-local.yml
+application-local.properties
+aws-credentials
+.aws/
+
+### Logs ###
+*.log
+logs/
