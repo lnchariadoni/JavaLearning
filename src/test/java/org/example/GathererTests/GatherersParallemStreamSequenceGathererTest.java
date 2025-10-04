@@ -107,8 +107,18 @@ class GatherersParallemStreamSequenceGathererTest {
             });
 
     /*
-    TODO
-     */
+    Gatherer with initializer, integrator, and finisher (v2).
+
+    - Initializer: Creates a new `ArrayList<Integer>` to accumulate state.
+    - Integrator: For each input `x`, adds `x` plus the last value in the state (or 0 if empty) to the state list.
+      This effectively builds a running sum sequence.
+      Logs the operation for each element processed.
+    - Finisher: Pushes all accumulated values in the state to the downstream.
+      Logs the final state.
+
+    This gatherer processes all elements sequentially, accumulating a running sum in the state list.
+    After all elements are processed, the finisher emits the entire sequence to the downstream in parallel.
+ */
     static Gatherer<Integer, List<Integer>, Integer> initializerWithIntegratorAndFinisherSequenceGatherer_v2 = Gatherer.ofSequential(
             () -> {
                 System.out.println(constructMessage("in gatherer with initializer & integrator & finisher in initializer"));
