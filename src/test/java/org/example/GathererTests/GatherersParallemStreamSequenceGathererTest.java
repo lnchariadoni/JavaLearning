@@ -172,6 +172,23 @@ class GatherersParallemStreamSequenceGathererTest {
         assertEquals(List.of(6, 12, 18), output1, "Lists should be equal in both elements and order");
     }
 
+    /**
+     * Test: parallelStreamWithSequenceGatherer2
+     *
+     * Verifies the behavior of a parallel stream using a sequence gatherer with integrator and finisher.
+     *
+     * Steps:
+     * 1. Filters elements greater than zero.
+     * 2. Maps each element by multiplying by two.
+     * 3. Gathers using integratorWithFinisherSequenceGatherer (forces sequential processing up to this point).
+     * 4. Maps each gathered element by multiplying by three.
+     * 5. Filters elements less than one hundred.
+     * 6. Limits to the first three elements.
+     * 7. Collects results to a list.
+     *
+     * Expected output: [6, 12, 18]
+     * (corresponds to: ((1*2)*3), ((2*2)*3), ((3*2)*3))
+     */
     @Test
     void parallelStreamWithSequenceGatherer2() {
         System.out.println("Invoking stream processing: parallel stream with sequence gatherer with integrator & finisher");
