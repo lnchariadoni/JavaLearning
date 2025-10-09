@@ -104,6 +104,13 @@ jobs:
     - name: Verify compilation
       run: mvn clean compile
       
-    # Uncomment below if you add SpotBugs or Checkstyle plugins to your pom.xml
-    # - name: Run static analysis
-    #   run: mvn spotbugs:check checkstyle:check
+    - name: Run Checkstyle analysis
+      run: mvn checkstyle:check
+      
+    - name: Upload Checkstyle results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: checkstyle-results
+        path: target/checkstyle-result.xml
+        retention-days: 7
