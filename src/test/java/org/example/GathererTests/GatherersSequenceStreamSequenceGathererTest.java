@@ -63,8 +63,8 @@ class GatherersSequenceStreamSequenceGathererTest {
                 return result.push(x);
             },
             (Void _, Gatherer.Downstream<? super Integer> result) -> {
-                result.push(11); // intentionally adding, so that we can see it in the logs when the finisher is called.
                 System.out.println(constructMessage("in gatherer finisher"));
+                result.push(11); // intentionally adding, so that we can see it in the logs when the finisher is called.
             }
     );
 
@@ -119,8 +119,8 @@ class GatherersSequenceStreamSequenceGathererTest {
                 return true;
             },
             (List<Integer> state, Gatherer.Downstream<? super Integer> downstream) -> {
-                state.forEach(downstream::push);
                 System.out.println(constructMessage("in gatherer with initializer & integrator & finisher in finisher with state=" + state));
+                state.forEach(downstream::push);
             });
 
     /*

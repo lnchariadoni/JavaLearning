@@ -1,0 +1,9 @@
+#!/bin/sh
+branch="$(git rev-parse --abbrev-ref HEAD)"
+if [ "$branch" = "main" ]; then
+  echo "🚫 Direct commit to 'main' are not allowed!"
+  exit 1
+fi
+
+# Copy this file to .git/hooks/pre-commit
+# Give chmod +x hooks/pre-commit to make it executable
