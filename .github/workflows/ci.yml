@@ -39,7 +39,7 @@ jobs:
         run: mvn clean test
 
       - name: Publish test results
-        uses: EnricoMi/publish-unit-test-result-action@8885022ab8f48b21a3b5d31397caecd0473db310
+        uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
           files: target/surefire-reports/*.xml
