@@ -38,34 +38,34 @@
     <build>
         <plugins>
             <!-- Maven Compiler Plugin with Error Prone -->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                <version>3.13.0</version>-->
-<!--                <configuration>-->
-<!--                    <source>25</source>-->
-<!--                    <target>25</target>-->
-<!--                    <compilerArgs>-->
-<!--                        <arg>-XDcompilePolicy=simple</arg>-->
-<!--                        <arg>-Xplugin:ErrorProne</arg>-->
-<!--                    </compilerArgs>-->
-<!--                    <annotationProcessorPaths>-->
-<!--                        <path>-->
-<!--                            <groupId>com.google.errorprone</groupId>-->
-<!--                            <artifactId>error_prone_core</artifactId>-->
-<!--                            <version>2.33.0</version>-->
-<!--                        </path>-->
-<!--                    </annotationProcessorPaths>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-            
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-compiler-plugin</artifactId>-->
+            <!--                <version>3.13.0</version>-->
+            <!--                <configuration>-->
+            <!--                    <source>25</source>-->
+            <!--                    <target>25</target>-->
+            <!--                    <compilerArgs>-->
+            <!--                        <arg>-XDcompilePolicy=simple</arg>-->
+            <!--                        <arg>-Xplugin:ErrorProne</arg>-->
+            <!--                    </compilerArgs>-->
+            <!--                    <annotationProcessorPaths>-->
+            <!--                        <path>-->
+            <!--                            <groupId>com.google.errorprone</groupId>-->
+            <!--                            <artifactId>error_prone_core</artifactId>-->
+            <!--                            <version>2.33.0</version>-->
+            <!--                        </path>-->
+            <!--                    </annotationProcessorPaths>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+
             <!-- Checkstyle Plugin (Java 25 compatible) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.5.0</version>
                 <configuration>
-                    <configLocation>google_checks.xml</configLocation>
+                    <configLocation>checkstyle.xml</configLocation>
                     <failOnViolation>false</failOnViolation>
                     <consoleOutput>true</consoleOutput>
                 </configuration>
